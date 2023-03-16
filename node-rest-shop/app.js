@@ -2,8 +2,13 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
 const productRoutes = require("./api/routes/products");
+const orderRoutes = require("./api/routes/orders");
+
+mongoose.connect('mongodb+srv://mkhan:'+process.env.mongodb_password+'@cluster0.4hxwplz.mongodb.net/?retryWrites=true&w=majority');
+
 app.use(morgan("dev"));
 //handeling CORS errors
 app.use((req, res, next) => {
@@ -20,7 +25,6 @@ app.use((req, res, next) => {
     return res.status(200).json({});
   }
 });
-const orderRoutes = require("./api/routes/orders");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/products", productRoutes);

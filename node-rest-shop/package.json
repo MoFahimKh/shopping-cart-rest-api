@@ -19,6 +19,7 @@
   "homepage": "https://github.com/MFahimKhQodeleaf/shopping-cart-rest-api#readme",
   "dependencies": {
     "express": "^4.18.2",
+    "mongoose": "^7.0.2",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.21"
   }
